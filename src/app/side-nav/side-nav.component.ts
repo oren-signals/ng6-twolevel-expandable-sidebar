@@ -26,7 +26,6 @@ export class SideNavComponent implements OnInit {
   favoritesItem: FirstLevelItem;
   galleryItem: FirstLevelItem;
   navigationItem: FirstLevelItem;
-  currentUrl: string;
 
   constructor(private dataService: DataService, private router: Router, private urlListener: UrlListenerService) { 
     this.favoritesItem = new FirstLevelItem("favorite", "Favorites", "favorites", null);
@@ -41,9 +40,6 @@ export class SideNavComponent implements OnInit {
     this.navData = this.dataService.getSideNaveData();
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd ) {
-        console.log(e);
-        
-        this.currentUrl = e.url;
         this.urlListener.setCurrentUrl(e.url);
       }
     })

@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class UrlListenerService {
 
-  currentUrl: string = null;
-  constructor() { }
+	currentUrl: string = null;
+	constructor() { }
 
-  setCurrentUrl(url: string)
-  {
-    console.log("current url listener: ",  url);
-    
-    this.currentUrl = url;
-  }
+	setCurrentUrl(url: string)
+	{
+		this.currentUrl = url;
+	}
 
-  getCurrentUrl(): string {
-    return this.currentUrl;
-  }
+	getCurrentUrl(): string {
+		return this.currentUrl;
+	}
 }

@@ -1,31 +1,30 @@
 <div class="side-nav" (mouseenter)="mouseenterNav($event)" (mouseleave)="mouseleaveNav($event)">
-  <div style="overflow: auto; height: 100%;">
-    <div class="first-level" [class.isOpen]="isOpen">
-      <ul>
-        <app-first-level-item-menu (parentOpenSecondLevel)="openSecondLevel($event)" (parentCloseNav)="closeNav($event)" [firstLevelItem]="navigationItem"
-          [isOpen]="isOpen"></app-first-level-item-menu>
-      </ul>
-      <hr/>
-      <ul style="margin-bottom: 300px">
-        <app-first-level-item-menu *ngFor="let firstLevelItem of navData.firstLevel.items" (parentOpenSecondLevel)="openSecondLevel($event)"
-          (parentCloseNav)="closeNav($event)" [firstLevelItem]="firstLevelItem" [isOpen]="isOpen"></app-first-level-item-menu>
-      </ul>
-      <hr/>
-      <ul style="margin-bottom: 300px">
-        <app-first-level-item-menu (parentOpenSecondLevel)="openSecondLevel($event)" (parentCloseNav)="closeNav($event)" [firstLevelItem]="favoritesItem"
-          [isOpen]="isOpen"></app-first-level-item-menu>
-        <app-first-level-item-menu (parentOpenSecondLevel)="openSecondLevel($event)" (parentCloseNav)="closeNav($event)" [firstLevelItem]="galleryItem"
-          [isOpen]="isOpen"></app-first-level-item-menu>
-      </ul>
+	<div style="overflow: auto; height: 100%;">
+		<div class="first-level" [class.isOpen]="isOpen">
+			<ul>
+				<app-first-level-item-menu (parentOpenSecondLevel)="openSecondLevel($event)" (parentCloseNav)="closeNav($event)" [firstLevelItem]="navigationItem"
+				 [isOpen]="isOpen"></app-first-level-item-menu>
+			</ul>
+			<hr/>
+			<ul style="margin-bottom: 300px">
+				<app-first-level-item-menu *ngFor="let firstLevelItem of navData.firstLevel.items" (parentOpenSecondLevel)="openSecondLevel($event)"
+				 (parentCloseNav)="closeNav($event)" [firstLevelItem]="firstLevelItem" [isOpen]="isOpen"></app-first-level-item-menu>
+			</ul>
+			<hr/>
+			<ul style="margin-bottom: 300px">
+				<app-first-level-item-menu (parentOpenSecondLevel)="openSecondLevel($event)" (parentCloseNav)="closeNav($event)" [firstLevelItem]="favoritesItem"
+				 [isOpen]="isOpen"></app-first-level-item-menu>
+				<app-first-level-item-menu (parentOpenSecondLevel)="openSecondLevel($event)" (parentCloseNav)="closeNav($event)" [firstLevelItem]="galleryItem"
+				 [isOpen]="isOpen"></app-first-level-item-menu>
+			</ul>
 
-    </div>
+		</div>
 
-    <div *ngIf="secondLevelNavData && secondLevelNavData.items" class="second-level" [class.isOpen]="isSecondLevelOpen">
-      <ul style="margin-top: 40%">
-
-        <app-second-level-item-menu *ngFor="let secondLevelItem of secondLevelNavData.items" (parentCloseNav)="closeNav($event)"
-          [secondLevelItem]="secondLevelItem"></app-second-level-item-menu>
-      </ul>
-    </div>
-  </div>
+		<div *ngIf="secondLevelNavData && secondLevelNavData.items" class="second-level" [class.isOpen]="isSecondLevelOpen">
+			<ul style="margin-top: 40%">
+				<app-second-level-item-menu *ngFor="let secondLevelItem of secondLevelNavData.items" (parentCloseNav)="closeNav($event)"
+				 [secondLevelItem]="secondLevelItem"></app-second-level-item-menu>
+			</ul>
+		</div>
+	</div>
 </div>
