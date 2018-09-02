@@ -1,0 +1,19 @@
+li
+{
+    height: 2.5rem;
+    overflow: hidden;
+}
+.first-level-item{
+    display: flex;
+    .text
+    {
+        transition: opacity .2s; 
+        transition-delay: .1s; 
+        display: flex; 
+        align-items: center;
+    }
+    &.sub-item
+    {
+        margin: 5px 10px 5px 40px;        
+    }
+}

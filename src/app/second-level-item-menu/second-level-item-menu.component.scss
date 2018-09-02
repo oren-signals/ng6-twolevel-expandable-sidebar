@@ -1,0 +1,33 @@
+.second-level-item{
+    margin: 15px 20px;
+    display: flex;
+    &.sub-item
+    {
+        margin: 5px 10px 5px 40px;        
+    }
+    .text
+    {
+        display: flex;
+        align-items: center;
+    }
+}
+.item-thumb-wrap
+{
+    transition: all .2s;
+    position: fixed;
+    left: 490px;
+    margin-top: -80px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid grey;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 5px;
+    background-color: white;
+}
+.item-thumb-wrap:hover{
+    cursor: pointer;
+    border-color: #009edb;
+    border-width: 3px;
+}

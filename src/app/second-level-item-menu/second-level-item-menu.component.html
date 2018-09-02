@@ -1,0 +1,18 @@
+<li (mouseenter)="mouseenter($event)" (mouseleave)="mouseleave()" style="position: relative">
+    <a class="second-level-item menu-item" [class.sub-item]="isSubItem" [class.selected]="isSelected()" href="javascript:void(0)" [routerLink]="secondLevelItem.url == null ? null : secondLevelItem.url"
+        (click)="secondLevelItem.group != null ? expandGroup() : closeNav()">
+        <span class="text">{{secondLevelItem.text}}</span>
+        <ng-container *ngIf="secondLevelItem.group && secondLevelItem.group.length">
+                <mat-icon *ngIf="!expanded">keyboard_arrow_right</mat-icon>
+                <mat-icon *ngIf="expanded">keyboard_arrow_down</mat-icon>
+        </ng-container>
+    </a>
+    <div *ngIf="showThumb" (click)="closeNav()" [routerLink]="secondLevelItem.url == null ? null : secondLevelItem.url" class="item-thumb-wrap"
+        [ngStyle]="{'background-image': 'url(' + secondLevelItem.thumbnailUrl + ')', 'top': imageOffsetTop + 'px'}">
+    </div>
+    <ng-container *ngIf="secondLevelItem.group && secondLevelItem.group.length && expanded">
+        <app-second-level-item-menu *ngFor="let secondLevelItem of secondLevelItem.group" isSubItem="true" (parentCloseNav)="closeNav($event)"
+            [secondLevelItem]="secondLevelItem"></app-second-level-item-menu>
+    </ng-container>
+
+</li>

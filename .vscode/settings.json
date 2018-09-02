@@ -1,0 +1,4 @@
+{
+"tslint.enable": false,
+"html.suggest.angular1": false,
+}

@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    // display: grid;
+    // grid-auto-columns: 70px auto;
+}
+
+.side-nav {
+    color: white;
+    a {
+        color: white;
+        &.selected {
+            color: #009edb;
+        }
+    }
+    .mat-icon {
+        color: white;
+        margin: 10px 20px;
+    }
+    .selected {
+        .mat-icon {
+            color: #009edb;
+        }
+    }
+    a.menu-item
+    {
+        text-decoration: none;
+    }
+    
+}

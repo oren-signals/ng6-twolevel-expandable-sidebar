@@ -1,0 +1,60 @@
+$closedWith: 70px;
+$firstLevelWidth: 250px;
+$secondLevelWidth: 250px;
+
+.side-nav
+{
+    position: relative;
+    height: 100%;
+    
+
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li{
+            height: 44px;
+            overflow: hidden;
+        }
+
+    }
+
+    .first-level
+    {
+        min-height: 100%;
+        transition: all .3s;
+        background: rgba(71,77,96,1.0);
+        width: $closedWith;
+        position: relative;
+        z-index: 1;
+        // display: inline-block;
+        float:left;
+        &.isOpen
+        {
+            width: $firstLevelWidth;
+        }
+    
+    }
+
+    .second-level
+    {
+        transition: all .3s;
+        height: 100%;
+        position: relative;
+        float:left;
+        top: 0;
+        margin-left: -500px;
+        width: 0;
+        background: rgba(60,67,86,1.0);
+        &.isOpen{
+            width: $secondLevelWidth;
+            margin-left: 0px;
+        }
+    }
+
+
+    
+
+    
+    
+}

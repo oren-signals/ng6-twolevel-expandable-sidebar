@@ -1,0 +1,17 @@
+<li>
+    <a class="first-level-item menu-item" [class.sub-item]="isSubItem" [class.selected]="isSelected()" href="javascript:void(0)"
+        [routerLink]="firstLevelItem.secondLevel == null ? firstLevelItem.url : null" (click)="firstLevelItem.secondLevel != null ? openSecondLevelClicked() : firstLevelItem.group != null ? expandGroup() : closeNav()">
+        <mat-icon *ngIf="!isSubItem || (isSubItem && isOpen)">{{firstLevelItem.iconName}}</mat-icon>
+        <span class="text" [ngStyle]="{'opacity': isShowText ? 1 : 0, 'display': isOpen ? 'flex' : 'none'}">
+            {{firstLevelItem.text}}
+        </span>
+        <ng-container *ngIf="firstLevelItem.group && firstLevelItem.group.length">
+            <mat-icon *ngIf="!expanded">keyboard_arrow_right</mat-icon>
+            <mat-icon *ngIf="expanded">keyboard_arrow_down</mat-icon>
+        </ng-container>
+    </a>
+</li>
+<ng-container *ngIf="firstLevelItem.group && firstLevelItem.group.length && expanded">
+
+    <app-first-level-item-menu *ngFor="let sub of firstLevelItem.group" isSubItem="true" [currentUrl]="currentUrl" [isOpen]="isOpen" [firstLevelItem]="sub" (parentCloseNav)="closeNav($event)"></app-first-level-item-menu>
+</ng-container>
