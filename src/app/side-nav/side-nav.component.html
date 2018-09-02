@@ -19,7 +19,7 @@
   <div *ngIf="secondLevelNavData && secondLevelNavData.items" class="second-level" [class.isOpen]="isSecondLevelOpen">
     <ul style="margin-top: 40%">
      
-        <app-second-level-item-menu *ngFor="let secondLevelItem of secondLevelNavData.items" (parentCloseNav)="closeNav($event)" [secondLevelItem]="secondLevelItem" ></app-second-level-item-menu>
+        <app-second-level-item-menu *ngFor="let secondLevelItem of secondLevelNavData.items" [currentUrl]="currentUrl" (parentCloseNav)="closeNav($event)" [secondLevelItem]="secondLevelItem" ></app-second-level-item-menu>
     </ul>
   </div>
 </div>

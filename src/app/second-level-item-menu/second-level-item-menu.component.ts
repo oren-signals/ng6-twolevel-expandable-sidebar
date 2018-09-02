@@ -18,6 +18,8 @@ export class SecondLevelItemMenuComponent implements OnInit {
   imageOffsetTop: number;
   expanded = false;
   @Input() isSubItem = false;
+	@Input() currentUrl: string;
+
   
   constructor() { 
     
@@ -58,7 +60,18 @@ export class SecondLevelItemMenuComponent implements OnInit {
   }
 
   isSelected(): boolean {
-    return true;
+    if (this.currentUrl === "/" + this.secondLevelItem.url) {
+			return true;
+    }
+    
+    if (this.secondLevelItem.group && this.secondLevelItem.group.length) {
+			var foundSubItem = this.secondLevelItem.group.find((item) => this.currentUrl === "/" + item.url)
+			if (foundSubItem) {
+				return true;
+			}
+		}
+
+    return false;
   }
 
 }

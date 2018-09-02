@@ -11,7 +11,7 @@
         [ngStyle]="{'background-image': 'url(' + secondLevelItem.thumbnailUrl + ')', 'top': imageOffsetTop + 'px'}">
     </div>
     <ng-container *ngIf="secondLevelItem.group && secondLevelItem.group.length && expanded">
-        <app-second-level-item-menu *ngFor="let secondLevelItem of secondLevelItem.group" isSubItem="true" (parentCloseNav)="closeNav($event)"
+        <app-second-level-item-menu *ngFor="let secondLevelItem of secondLevelItem.group" [currentUrl]="currentUrl" isSubItem="true" (parentCloseNav)="closeNav($event)"
             [secondLevelItem]="secondLevelItem"></app-second-level-item-menu>
     </ng-container>
 
