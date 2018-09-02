@@ -60,12 +60,13 @@ export class SecondLevelItemMenuComponent implements OnInit {
   }
 
   isSelected(): boolean {
-    if (this.urlListener.getCurrentUrl() === "/" + this.secondLevelItem.url) {
+    const currentUrl = this.urlListener.getCurrentUrl();
+    if (currentUrl === "/" + this.secondLevelItem.url) {
 			return true;
     }
     
     if (this.secondLevelItem.group && this.secondLevelItem.group.length) {
-			var foundSubItem = this.secondLevelItem.group.find((item) => this.currentUrl === "/" + item.url)
+			var foundSubItem = this.secondLevelItem.group.find((item) => currentUrl === "/" + item.url)
 			if (foundSubItem) {
 				return true;
 			}
