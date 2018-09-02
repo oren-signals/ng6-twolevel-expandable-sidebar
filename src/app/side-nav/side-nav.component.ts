@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { FirstLevelItem } from '../model/FirstLevelItem';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { UrlListenerService } from '../url-listener.service';
 
 
 
@@ -27,7 +28,7 @@ export class SideNavComponent implements OnInit {
   navigationItem: FirstLevelItem;
   currentUrl: string;
 
-  constructor(private dataService: DataService, private router: Router) { 
+  constructor(private dataService: DataService, private router: Router, private urlListener: UrlListenerService) { 
     this.favoritesItem = new FirstLevelItem("favorite", "Favorites", "favorites", null);
     this.galleryItem = new FirstLevelItem("photo_library", "Gallery", "gallery", null);
     this.navigationItem = new FirstLevelItem("menu", "Navigation", null, null);
@@ -43,6 +44,7 @@ export class SideNavComponent implements OnInit {
         console.log(e);
         
         this.currentUrl = e.url;
+        this.urlListener.setCurrentUrl(e.url);
       }
     })
 

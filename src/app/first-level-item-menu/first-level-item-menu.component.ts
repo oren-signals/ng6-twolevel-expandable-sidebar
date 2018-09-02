@@ -3,6 +3,7 @@ import { FirstLevelItem } from '../model/FirstLevelItem';
 import { SecondLevelNavData } from '../model/SecondLevelNavData';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { UrlListenerService } from '../url-listener.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { delay } from 'rxjs/operators';
 export class FirstLevelItemMenuComponent implements OnInit {
 
 
-	constructor() {
+	constructor(private urlListener: UrlListenerService) {
 
 	}
 
@@ -23,9 +24,6 @@ export class FirstLevelItemMenuComponent implements OnInit {
 
 	@Input() firstLevelItem: FirstLevelItem;
 	private _isOpen = false;
-
-
-	@Input() currentUrl: string;
 
 	@Output() parentOpenSecondLevel = new EventEmitter<SecondLevelNavData>();
 	@Output() parentCloseNav = new EventEmitter<boolean>();
@@ -75,17 +73,17 @@ export class FirstLevelItemMenuComponent implements OnInit {
 	}
 
 	isSelected(): boolean {
-
-		if (this.currentUrl === "/" + this.firstLevelItem.url) {
+		var currentUrl = this.urlListener.getCurrentUrl();
+		if (currentUrl === "/" + this.firstLevelItem.url) {
 			return true;
 		}
 		if (this.firstLevelItem.secondLevel && this.firstLevelItem.secondLevel.items) {
 			var found = this.firstLevelItem.secondLevel.items.find((item) => {
-				if (this.currentUrl === "/" + item.url) {
+				if (currentUrl === "/" + item.url) {
 					return true;
 				}
 				if (item.group && item.group.length) {
-					var foundSubInSecondLevel = item.group.find((item) => this.currentUrl === "/" + item.url)
+					var foundSubInSecondLevel = item.group.find((item) => currentUrl === "/" + item.url)
 					if (foundSubInSecondLevel) {
 						return true
 					}
@@ -98,7 +96,7 @@ export class FirstLevelItemMenuComponent implements OnInit {
 
 		}
 		if (this.firstLevelItem.group && this.firstLevelItem.group.length) {
-			var foundSubItem = this.firstLevelItem.group.find((item) => this.currentUrl === "/" + item.url)
+			var foundSubItem = this.firstLevelItem.group.find((item) => currentUrl === "/" + item.url)
 			if (foundSubItem) {
 				return true;
 			}

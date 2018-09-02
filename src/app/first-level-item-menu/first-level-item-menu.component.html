@@ -13,5 +13,5 @@
 </li>
 <ng-container *ngIf="firstLevelItem.group && firstLevelItem.group.length && expanded">
 
-    <app-first-level-item-menu *ngFor="let sub of firstLevelItem.group" isSubItem="true" [currentUrl]="currentUrl" [isOpen]="isOpen" [firstLevelItem]="sub" (parentCloseNav)="closeNav($event)"></app-first-level-item-menu>
+    <app-first-level-item-menu *ngFor="let sub of firstLevelItem.group" isSubItem="true" [isOpen]="isOpen" [firstLevelItem]="sub" (parentCloseNav)="closeNav($event)"></app-first-level-item-menu>
 </ng-container>

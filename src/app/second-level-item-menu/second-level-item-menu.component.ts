@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SecondLevelItem } from '../model/SecondLevelItem';
 import {   of } from 'rxjs';
 import {  delay} from 'rxjs/operators';
+import { UrlListenerService } from '../url-listener.service';
 
 
 @Component({
@@ -18,10 +19,9 @@ export class SecondLevelItemMenuComponent implements OnInit {
   imageOffsetTop: number;
   expanded = false;
   @Input() isSubItem = false;
-	@Input() currentUrl: string;
 
   
-  constructor() { 
+  constructor(private urlListener: UrlListenerService) { 
     
      
   }
@@ -60,7 +60,7 @@ export class SecondLevelItemMenuComponent implements OnInit {
   }
 
   isSelected(): boolean {
-    if (this.currentUrl === "/" + this.secondLevelItem.url) {
+    if (this.urlListener.getCurrentUrl() === "/" + this.secondLevelItem.url) {
 			return true;
     }
     
