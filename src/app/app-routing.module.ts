@@ -6,6 +6,7 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "competitive", component: HomeComponent},
   {path: "dashboard", component: HomeComponent},
+  {path: "qms", component: HomeComponent},
   {path: "favorites", component: HomeComponent},
   {path: "charts_url", component: HomeComponent},
   {path: "search", component: HomeComponent},

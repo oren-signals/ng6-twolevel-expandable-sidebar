@@ -21,7 +21,10 @@ export class DataService {
     navData.firstLevel.items.push(chartsItem);
     var secondLevelItem: SecondLevelItem = new SecondLevelItem("Competitive", "competitive", "https://d1q6f0aelx0por.cloudfront.net/icons/d4mac-artboard2.png");
     var groupSecondLevelItem: SecondLevelItem = new SecondLevelItem("Group", null, null);
-    groupSecondLevelItem.group = [new SecondLevelItem("My Dashboard", "dashboard", "https://docs.microsoft.com/en-us/power-bi/media/service-dashboards/power-bi-dashboard2.png")]
+    groupSecondLevelItem.group = [
+      new SecondLevelItem("My Dashboard", "dashboard", "https://docs.microsoft.com/en-us/power-bi/media/service-dashboards/power-bi-dashboard2.png"),
+      new SecondLevelItem("QMs", "qms", null)
+    ]
     var secondLevelNavData = new SecondLevelNavData();
     secondLevelNavData.items = [secondLevelItem, groupSecondLevelItem];
     navData.firstLevel.items.push(new FirstLevelItem("show_chart", "Insights", null, secondLevelNavData))

@@ -1,60 +1,51 @@
 $closedWith: 70px;
 $firstLevelWidth: 250px;
 $secondLevelWidth: 250px;
-
-.side-nav
-{
+.side-nav {
     position: relative;
     height: 100%;
-    
-
-    ul{
+    .side-nav-scroller {
+        overflow: auto;
+        height: 100%;
+    }
+    .side-nav-bottom {
+        position: absolute;
+        bottom: 100px;
+        width: 100%
+    }
+    ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
-        li{
+        li {
             height: 44px;
             overflow: hidden;
         }
-
     }
-
-    .first-level
-    {
+    .first-level {
         min-height: 100%;
         transition: all .3s;
-        background: rgba(71,77,96,1.0);
+        background: rgba(71, 77, 96, 1.0);
         width: $closedWith;
         position: relative;
-        z-index: 1;
-        // display: inline-block;
-        float:left;
-        &.isOpen
-        {
+        z-index: 1; // display: inline-block;
+        float: left;
+        &.isOpen {
             width: $firstLevelWidth;
         }
-    
     }
-
-    .second-level
-    {
+    .second-level {
         transition: all .3s;
         height: 100%;
         position: relative;
-        float:left;
+        float: left;
         top: 0;
         margin-left: -500px;
         width: 0;
-        background: rgba(60,67,86,1.0);
-        &.isOpen{
+        background: rgba(60, 67, 86, 1.0);
+        &.isOpen {
             width: $secondLevelWidth;
             margin-left: 0px;
         }
     }
-
-
-    
-
-    
-    
 }
