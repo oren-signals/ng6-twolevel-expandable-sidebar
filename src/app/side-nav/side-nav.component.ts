@@ -36,7 +36,6 @@ export class SideNavComponent implements OnInit {
   
 
   ngOnInit() {
-
     this.navData = this.dataService.getSideNaveData();
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd ) {
@@ -48,7 +47,7 @@ export class SideNavComponent implements OnInit {
 
   mouseenterNav(e): void {
     this.shouldBeOpen = true;
-    of({}).pipe(delay(400)).subscribe(() => {
+    of({}).pipe(delay(100)).subscribe(() => {
       
         this.isOpen = this.shouldBeOpen;
       
